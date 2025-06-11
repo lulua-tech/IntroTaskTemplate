@@ -1,18 +1,21 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 20px;
+    font-optical-sizing: auto;
+    letter-spacing: 1px;
     margin: 0;
     padding: 0;
-    background-color: rgb(33, 110, 112);
+    background-color: rgb(218, 203, 217);
     color: black;
     line-height: 1.6;
-    background-image: url('./images/background.jpg');
     background-size: cover;
-    background-position: center;
-    background-repeat: repeat; 
-    background-attachment: fixed; 
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
+    place-content: center;
+    background-image: url('./Images/lined-paper.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: repeat;
 }
 
 h1, h2 {
@@ -25,13 +28,8 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
-    color: rgb(229, 45, 77);
-}
-
 section {
-    margin: 20px auto;
+    margin: 30px auto;
     padding: 20px;
     width: 800px; 
     min-height: 200px; 
@@ -39,24 +37,8 @@ section {
     color: black;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 2px solid rgb(229, 45, 77);
-    display: inline-block; 
-}
-
-section.profile {
-    max-width: 800px; 
-    margin: 20px auto; 
-    padding-left: 20px;
-    background-color: white;
-    color: black;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 2px solid rgb(229, 45, 77);
-    display: block; 
-}
-
-section.profile .profile-details {
-    text-align: left;
+    border: 6px solid black;
+    display: inline-block;
 }
 
 section p:first-of-type {
@@ -74,26 +56,12 @@ li {
     margin-bottom: 10px;
 }
 
-button {
-    background-color: rgb(46, 94, 170);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: rgb(229, 45, 77);
-}
-
 nav {
-    background-color: rgb(46, 94, 170);
-    padding: 10px 20px;
+    background-color: black;
+    padding: 15px 30px;
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 30px;
 }
 
 nav a {
@@ -103,6 +71,7 @@ nav a {
 
 nav a:hover {
     color: rgb(81, 187, 190);
+    text-decoration: none;
 }
 
 main {
@@ -124,7 +93,7 @@ main p {
 }
 
 footer {
-    background-color: #004080;
+    background-color: black;
     color: white;
     text-align: center;
     padding: 10px 0;
@@ -135,7 +104,7 @@ footer {
 
 footer p {
     margin: 0;
-    font-size: 0.9em;
+    font-size: 1em;
 }
 
 .profile-picture img {
@@ -146,15 +115,7 @@ footer p {
 .profile-content {
     display: flex;
     align-items: flex-start;
-    gap: 20px;
-}
-
-.profile-picture {
-    flex-shrink: 0;
-}
-
-.profile-details {
-    flex-grow: 1;
+    gap: 10px;
 }
 
 .additional-info {
@@ -215,19 +176,102 @@ footer p {
     transition: transform 0.2s ease;
 }
 
-contact-icons img:hover {
-    transform: scale(1.2);
-}
-
 .intro-section {
-    max-width: 800px; 
+    max-width: 900px; 
     margin: 20px auto; 
     padding-left: 20px;
     background-color: white;
     color: black;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 2px solid rgb(229, 45, 77);
+    border: 5px solid black;
     text-align: center; 
     display: block; 
+}
+
+.image-section {
+    display: flex;
+    flex-direction: column;
+}
+
+ .box {
+        background: #fff;
+        border-radius: 20px;
+        padding: 2rem;
+        max-width: 400px;
+        aspect-ratio: 2 / 3;
+        transition: all .5s cubic-bezier(.2,1.1,.86,1);
+        position: relative;
+        &::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border: 1px solid;
+          box-shadow: 0px 5px 0px #000;
+          border-radius: 12px;
+          filter: url(#squiggly-1);
+        }
+        &:hover {
+          transform: translatey(-15px);
+          box-shadow: 0px 15px 0px #000;
+        }
+      }
+
+.boxes-two-columns {
+    display: grid;
+    grid-template-areas: "a a";
+}
+
+.box-final {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 800px) {
+    a {
+        display:flexbox;
+        justify-content: center;
+        align-items: center;
+    }
+
+    body {
+        font-size: 16px;
+    }
+
+    .boxes-two-columns {
+        display:grid;
+        grid-template-areas: "a";
+        justify-content: center;
+    }
+
+    .intro-section {
+        display:block;
+        max-width: 70%;
+        position:relative;
+    }
+
+    .intro {
+        max-width: 70%;
+    }
+
+    .profile {
+        max-width: 70%;
+    }
+
+    .profile-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gallery-images {
+        flex-direction: column;
+        align-items: center;
+        padding-left: 30px;
+    }
+
+    .image-section {
+        max-width: 70%;
+        flex-direction: column;
+        display: flex;
+    }
 }
